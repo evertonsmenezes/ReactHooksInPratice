@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import './App.css';
 
 export default function Example1() {
@@ -7,16 +7,20 @@ export default function Example1() {
   const [result, setResult] = useState(0);
   const [listResult, setListResult] = useState([]);
 
+  const _calculate = useCallback(() => {
+    setResult(value1 + value2)
+  }, [value1, value2]);
+
   const _divCalculate = useMemo(() => {
     console.log('_divCalculate');
     return (
       <>
         <input value={value1} onChange={event => setValue1(Number(event.target.value))} type="number" />
         <input value={value2} onChange={event => setValue2(Number(event.target.value))} type="number" />
-        <button onClick={() => setResult(value1 + value2)}>Calculate</button>
+        <button onClick={_calculate}>Calculate</button>
       </>
     );
-  }, [value1, value2]);
+  }, [value1, value2, _calculate]);
 
   const _divResult = useMemo(() => {
     console.log('_divResult');

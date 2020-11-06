@@ -1,3 +1,7 @@
 .div-main {
   padding: 8px;
 }
+
+.flex {
+  display: flex;
+}

@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import './App.css';
 import Example1 from './Example1';
 import Example2 from './Example2';
+import Example3 from './Example3';
 
 export default function App() {
   const [idItem, setIdItem] = useState(2);
@@ -13,6 +14,9 @@ export default function App() {
 
       case 2:
         return <Example2 />
+
+      case 3:
+        return <Example3 />
 
       default:
         return null;
@@ -41,4 +45,5 @@ export default function App() {
 const listExample = [
   Example1,
   Example2,
+  Example3,
 ]
